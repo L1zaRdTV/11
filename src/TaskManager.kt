@@ -1,14 +1,17 @@
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+//Для получения текущей даты и для форматирования даты.
 
 class TaskManager {
     private val zadachi = mutableListOf<Task>()
     private val fileHandler = FileHandler()
     private var sleduyushchiyId = 1
+    //Класс управляет всеми задачами.
 
     init {
         zagruzitZadachi()
     }
+    //Блок выполняется при создании объекта.
 
     private fun zagruzitZadachi() {
         zadachi.addAll(fileHandler.zagruzitZadachi())
@@ -16,16 +19,19 @@ class TaskManager {
             if (it.id >= sleduyushchiyId) sleduyushchiyId = it.id + 1
         }
     }
+    //Добавляю загруженные задачи в список.
 
     private fun sohranitZadachi() {
         fileHandler.sohranitZadachi(zadachi)
     }
+    //Сохраняю список задач в файл.
 
     fun pokazatVseZadachi() {
         if (zadachi.isEmpty()) {
             println("\nНет задач для отображения.")
             return
         }
+        //вывожу все задачи.
 
         println("\n=== СПИСОК ВСЕХ ЗАДАЧ ===")
         zadachi.forEach { it.vyvestiInfo() }
@@ -81,6 +87,7 @@ class TaskManager {
     private fun poluchitTekushchuyuDatu(): String {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
     }
+    //ерёт текущую дату и форматирует как "yyyy-MM-dd"
 
     fun naytiZadachi() {
         println("\n=== ПОИСК ЗАДАЧ ===")
