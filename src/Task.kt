@@ -7,7 +7,9 @@ data class Task(
     val dueDate: String,
     val isCompleted: Boolean = false,
     val createdAt: String
-) {
+)
+//Создаю data-класс задачи.
+{
     fun vyvestiInfo() {
         val status = if (isCompleted) "Выполнено" else "В работе"
         println("\nID: $id | Статус: $status")
@@ -20,3 +22,4 @@ data class Task(
         println("-".repeat(50))
     }
 }
+//Метод вывода информации о задаче.
