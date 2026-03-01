@@ -1,8 +1,10 @@
 fun main() {
     val menedzher = TaskManager()
+    //Создаю объект TaskManager. Через него будет происходить вся работа с задачами.
 
     while (true) {
         vyvestiMenu()
+        //Вызываю меню которое будет показываться постоянно, пока пользователь не выйдет.
 
         when (readLine()) {
             "1" -> menedzher.pokazatVseZadachi()
@@ -19,6 +21,7 @@ fun main() {
         }
     }
 }
+//Считываю ввод пользователя. when проверяет, что именно он ввёл.
 
 fun vyvestiMenu() {
     println("\n" + "=".repeat(40))
@@ -34,3 +37,4 @@ fun vyvestiMenu() {
     println("=".repeat(40))
     print("Выберите действие: ")
 }
+//Функция выводит меню.
